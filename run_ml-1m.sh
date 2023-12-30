@@ -1,4 +1,4 @@
-CKPT_DIR="/path/BERT4Rec"
+CKPT_DIR="./"
 dataset_name="ml-1m"
 max_seq_length=200
 masked_lm_prob=0.2
@@ -27,7 +27,7 @@ python -u gen_data_fin.py \
     --signature=${signature} \
     --pool_size=${pool_size} \
 
-CUDA_VISIBLE_DEVICES=0 python -u run.py \
+python -u run.py \
     --train_input_file=./data/${dataset_name}${signature}.train.tfrecord \
     --test_input_file=./data/${dataset_name}${signature}.test.tfrecord \
     --vocab_filename=./data/${dataset_name}${signature}.vocab \
